@@ -82,7 +82,7 @@ const ProductDetail = () => {
             <h1 className="text-3xl md:text-4xl font-serif mb-4">{product.name}</h1>
             
             <div className="text-2xl text-earthy-clay font-medium mb-6">
-              ${product.price}
+              Rs. {product.price}
             </div>
             
             <div className="space-y-6">

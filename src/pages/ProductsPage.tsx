@@ -81,7 +81,7 @@ const ProductsPage = () => {
                         <div className="text-xs font-medium text-earthy-stone mb-1 uppercase">{product.category}</div>
                         <h3 className="font-medium mb-2 text-lg">{product.name}</h3>
                         <div className="flex justify-between items-center">
-                          <span className="font-medium text-earthy-clay">${product.price}</span>
+                          <span className="font-medium text-earthy-clay">Rs. {product.price}</span>
                           <div className="flex flex-wrap gap-1">
                             {product.materials.slice(0, 2).map((material, index) => (
                               <span key={index} className="text-xs bg-earthy-sand/30 py-1 px-2 rounded-full">

@@ -8,6 +8,7 @@ export interface Product {
   story: string;
   images: string[];
   artisanId: string;
+  stock: string;
   featured: boolean;
 }
 
@@ -24,6 +25,7 @@ export const products: Product[] = [
       "https://images.unsplash.com/photo-1598125009836-31af15e4b2c0"
     ],
     artisanId: "1",
+    stock: "14/15",
     featured: true
   },
   {
@@ -38,6 +40,7 @@ export const products: Product[] = [
       "https://images.unsplash.com/photo-1604859347436-2e6925be8862"
     ],
     artisanId: "2",
+    stock: "10/10",
     featured: true
   },
   {
@@ -52,6 +55,7 @@ export const products: Product[] = [
       "https://images.unsplash.com/photo-1611108191451-8c2ea3f8536d"
     ],
     artisanId: "3",
+    stock: "Sold!!",
     featured: true
   },
   {
@@ -66,6 +70,7 @@ export const products: Product[] = [
       "https://images.unsplash.com/photo-1589986005992-e5379505db19"
     ],
     artisanId: "4",
+    stock: "10/12",
     featured: true
   },
   {
@@ -80,6 +85,7 @@ export const products: Product[] = [
       "https://images.unsplash.com/photo-1581539250439-c96689abfc18"
     ],
     artisanId: "1",
+    stock: "8/8",
     featured: false
   },
   {
@@ -94,6 +100,7 @@ export const products: Product[] = [
       "https://images.unsplash.com/photo-1578749556568-bc2c40e68b61"
     ],
     artisanId: "2",
+    stock: "15/20",
     featured: false
   },
   {
@@ -108,6 +115,7 @@ export const products: Product[] = [
       "https://images.unsplash.com/photo-1535632787350-4e68ef0ac584"
     ],
     artisanId: "3",
+    stock: "7/9",
     featured: false
   },
   {
@@ -122,6 +130,7 @@ export const products: Product[] = [
       "https://images.unsplash.com/photo-1589642765095-bc69e4188d4b"
     ],
     artisanId: "4",
+    stock: "11/11",
     featured: false
   }
 ];

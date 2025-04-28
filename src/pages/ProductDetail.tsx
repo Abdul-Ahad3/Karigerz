@@ -84,6 +84,9 @@ const ProductDetail = () => {
             <div className="text-2xl text-earthy-clay font-medium mb-6">
               Rs. {product.price}
             </div>
+            <div className="text-2xl text-earthy-clay font-medium mb-6">
+              In stock: {product.stock}
+            </div>
             
             <div className="space-y-6">
               {/* Materials */}

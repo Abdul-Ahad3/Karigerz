@@ -210,6 +210,7 @@ const Home = () => {
                       <h3 className="font-medium mb-2">{product.name}</h3>
                       <div className="flex justify-between items-center">
                         <span className="font-medium text-earthy-clay">Rs. {product.price}</span>
+                        <span>In stock: {product.stock}</span>
                         <span className="text-sm text-earthy-stone">by {
                           artisans.find(a => a.id === product.artisanId)?.name
                         }</span>

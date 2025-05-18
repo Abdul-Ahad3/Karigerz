@@ -131,10 +131,16 @@ const ProductDetail = () => {
                 </div>
               )}
               
-              <div className="pt-4">
+              <div className="flex gap-4">
                 <Button 
                   className="w-full bg-earthy-clay hover:bg-earthy-soil text-white py-6 text-lg"
                   onClick={() => setShowContactForm(true)}
+                >
+                  Contact Artisans
+                </Button>
+                <Button 
+                  className="w-full bg-earthy-clay hover:bg-earthy-soil text-white py-6 text-lg"
+                  
                 >
                   Add to Cart
                 </Button>

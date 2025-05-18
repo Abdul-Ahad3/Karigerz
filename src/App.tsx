@@ -13,7 +13,6 @@ import ArtisansPage from "./pages/ArtisansPage";
 import ArtisanDetail from "./pages/ArtisanDetail";
 import AboutPage from "./pages/AboutPage";
 import CartShop from "./pages/CartShop"
-import CustomizationPage from "./pages/CustomizationPage";
 import NotFound from "./pages/NotFound";
 
 // Layout
@@ -36,7 +35,6 @@ const App = () => (
             <Route path="artisans/:id" element={<ArtisanDetail />} />
             <Route path="about" element={<AboutPage />} />
             <Route path="cartshop" element={<CartShop />}/>
-            <Route path="customize" element={<CustomizationPage />} />
             <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>

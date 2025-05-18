@@ -136,7 +136,7 @@ const ProductDetail = () => {
                   className="w-full bg-earthy-clay hover:bg-earthy-soil text-white py-6 text-lg"
                   onClick={() => setShowContactForm(true)}
                 >
-                  Contact Artisan
+                  Add to Cart
                 </Button>
               </div>
             </div>

@@ -1,8 +1,8 @@
-import { Button } from "react-day-picker"
+import { Button } from "@/components/ui/button"
 import { useCart } from "./ProductDetail"
 
 const CartShop = () => {
-  const { cartItems } = useCart()
+  const { cartItems, removeFromCart } = useCart()
 
   return (
     <div className="min-h-screen pt-20">
@@ -16,15 +16,36 @@ const CartShop = () => {
       {cartItems.length === 0 ? (
         <p>No items in cart.</p>
       ) : (
-        <ul className="flex gap-4">
+        <ul className="flex overflow-x-auto gap-6 px-6 py-8">
           {cartItems.map((item, index) => (
-            <li key={index} className="border p-4 rounded">
-              <h2 className="text-lg font-semibold">{item.name}</h2>
-              <p>Rs.{item.price}</p>
-              <img src={item.images[0]} alt={item.name} className="w-32 h-32 object-cover mt-2" />
-            </li>
+          <li
+            key={index}
+            className="min-w-[250px] max-w-xs flex-shrink-0 border border-gray-300 rounded-lg p-4 bg-white shadow-sm"
+          >     
+            <h2 className="text-xl font-semibold mb-2">{item.name}</h2>
+            <p className="text-gray-700 mb-2">Rs. {item.price}</p>
+            <img
+              src={item.images[0]}
+              alt={item.name}
+              className="w-full h-40 object-cover rounded mb-4"
+            />
+            <div className="flex flex-col gap-3">
+              <Button className="bg-earthy-clay hover:bg-earthy-soil text-white py-2 text-lg">
+                Buy
+              </Button>
+
+              <Button 
+                className="bg-red-500 hover:bg-red-600 text-white py-2 text-lg"
+                onClick={() => removeFromCart(item.id)}
+              >
+                Remove
+              </Button>
+            </div>
+
+          </li>
           ))}
         </ul>
+
       )}
     </div>
   )

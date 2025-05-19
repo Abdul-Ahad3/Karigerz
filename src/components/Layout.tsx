@@ -132,7 +132,7 @@ const Layout = () => {
                 Our Story
               </Link>
               <Link 
-                to="/customize" 
+                to="/cartshop" 
                 className="bg-earthy-clay text-white px-4 py-2 rounded-md font-medium hover:bg-earthy-soil transition-colors inline-block w-full text-center"
               >
                 Cart

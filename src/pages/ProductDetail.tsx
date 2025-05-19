@@ -145,6 +145,21 @@ const ProductDetail = () => {
                   ))}
                 </div>
               </div>
+
+              <div className="flex gap-4">
+                <Button 
+                  className="w-full bg-earthy-clay hover:bg-earthy-soil text-white py-6 text-lg"
+                  onClick={() => setShowContactForm(true)}
+                >
+                  Contact Artisans
+                </Button>
+                <Button 
+                  className="w-full bg-earthy-clay hover:bg-earthy-soil text-white py-6 text-lg"
+                  onClick={() => addToCart(product)}
+                >
+                  Add to Cart
+                </Button>
+              </div>
               
               <Separator />
               
@@ -176,20 +191,8 @@ const ProductDetail = () => {
                 </div>
               )}
               
-              <div className="flex gap-4">
-                <Button 
-                  className="w-full bg-earthy-clay hover:bg-earthy-soil text-white py-6 text-lg"
-                  onClick={() => setShowContactForm(true)}
-                >
-                  Contact Artisans
-                </Button>
-                <Button 
-                  className="w-full bg-earthy-clay hover:bg-earthy-soil text-white py-6 text-lg"
-                  onClick={() => addToCart(product)}
-                >
-                  Add to Cart
-                </Button>
-              </div>
+              <Separator />  
+            
             </div>
           </div>
         </div>

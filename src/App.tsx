@@ -18,6 +18,8 @@ import NotFound from "./pages/NotFound";
 // Layout
 import Layout from "./components/Layout";
 
+import  {CartProvider} from "./pages/ProductDetail"
+
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -25,9 +27,11 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Layout />}>
+
+      <CartProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
             <Route path="products" element={<ProductsPage />} />
             <Route path="products/:id" element={<ProductDetail />} />
@@ -39,6 +43,9 @@ const App = () => (
           </Route>
         </Routes>
       </BrowserRouter>
+
+      </CartProvider>
+      
     </TooltipProvider>
   </QueryClientProvider>
 );

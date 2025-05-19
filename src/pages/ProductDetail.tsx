@@ -1,5 +1,5 @@
 
-import { useState } from 'react';
+import { createContext, useContext,useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { products } from '../data/products';
 import { artisans } from '../data/artisans';
@@ -8,12 +8,52 @@ import { Separator } from '@/components/ui/separator';
 import ContactArtisanForm from '../components/ContactArtisanForm';
 import { ArrowLeft } from 'lucide-react';
 
+/*Context*/
+
+type Product = {
+  id: string
+  name: string
+  price: number
+  images: string[]
+  artisanId: string
+  // Add other product fields you use
+}
+
+type CartContextType = {
+  cartItems: Product[]
+  addToCart: (product: Product) => void
+}
+
+const CartContext = createContext<CartContextType | undefined>(undefined)
+
+export const CartProvider = ({ children }: { children: React.ReactNode }) => {
+  const [cartItems, setCartItems] = useState<Product[]>([])
+
+  const addToCart = (product: Product) => {
+    setCartItems((prev) => [...prev, product])
+    alert(`${product.name} has been added to your cart!`)
+  }
+
+  return (
+    <CartContext.Provider value={{ cartItems, addToCart }}>
+      {children}
+    </CartContext.Provider>
+  )
+}
+
+export const useCart = () => {
+  const context = useContext(CartContext)
+  if (!context) throw new Error("useCart must be used within a CartProvider")
+  return context
+}
+
 const ProductDetail = () => {
   const { id } = useParams();
   const [selectedImage, setSelectedImage] = useState(0);
   const [showContactForm, setShowContactForm] = useState(false);
 
   const product = products.find(p => p.id === id);
+  const { addToCart } = useCart();
   
   if (!product) {
     return (
@@ -140,7 +180,7 @@ const ProductDetail = () => {
                 </Button>
                 <Button 
                   className="w-full bg-earthy-clay hover:bg-earthy-soil text-white py-6 text-lg"
-                  
+                  onClick={() => addToCart(product)}
                 >
                   Add to Cart
                 </Button>

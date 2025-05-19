@@ -1,9 +1,7 @@
-
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
 import { toast } from '@/components/ui/use-toast';
 
 interface BuyFormProps {
@@ -17,15 +15,18 @@ const BuyForm = ({ productName, artisanName, onClose }: BuyFormProps) => {
   const [address, setAddress] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
 
+  const [selectedItem, setSelectedItem] = useState(false);
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
     // Simulate API call
     setTimeout(() => {
       toast({
-        title: "Message Sent!",
-        description: `Your inquiry about ${productName} has been sent to ${artisanName}.`,
+        title: "Order Placed!",
+        description: `Your order for ${productName} has been sent to ${artisanName}.`,
       });
       setIsSubmitting(false);
       onClose();
@@ -43,9 +44,9 @@ const BuyForm = ({ productName, artisanName, onClose }: BuyFormProps) => {
           required
         />
       </div>
-      
+
       <div className="space-y-2">
-        <Label htmlFor="email">Complete Address</Label>
+        <Label htmlFor="address">Complete Address</Label>
         <Input
           id="address"
           value={address}
@@ -53,12 +54,14 @@ const BuyForm = ({ productName, artisanName, onClose }: BuyFormProps) => {
           required
         />
       </div>
-      
-      <div className="space-y-2">
-        <Label htmlFor="message">Payment Type</Label>
-        <p>Currently only cash-on-delivery is available</p>
+
+      <div className="space-y-1">
+        <Label>Payment Type</Label>
+        <p className="text-sm text-muted-foreground">
+          Currently only <span className="font-medium">Cash on Delivery</span> is available.
+        </p>
       </div>
-      
+
       <div className="flex gap-4">
         <Button
           type="button"
@@ -74,7 +77,7 @@ const BuyForm = ({ productName, artisanName, onClose }: BuyFormProps) => {
           className="flex-1 bg-earthy-clay hover:bg-earthy-soil text-white"
           disabled={isSubmitting}
         >
-          {isSubmitting ? "Sending..." : "Send Message"}
+          {isSubmitting ? "Placing Order..." : "Place Order"}
         </Button>
       </div>
     </form>
